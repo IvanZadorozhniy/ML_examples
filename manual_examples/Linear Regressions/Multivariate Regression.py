@@ -8,7 +8,7 @@ X = np.array(x)
 Y = np.array(y)
 
 # TODO: Add comments and math description
-class MultiVariableRegression():
+class MultiVariateRegression():
     def __init__(self, theta=np.random.rand(), b=np.random.rand()) -> None:
         self.theta = theta
         self.b = b
@@ -36,6 +36,6 @@ class MultiVariableRegression():
 
 
 
-a = MultiVariableRegression()
+a = MultiVariateRegression()
 a.fit(X,Y)
 print(a.predict([[1,2,5]]))

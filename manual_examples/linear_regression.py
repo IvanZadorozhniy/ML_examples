@@ -7,9 +7,10 @@ y = [12,25,34,44,56]
 X = np.array(x)
 Y = np.array(y)
 
-fig = px.scatter(x=X, y=Y)
-fig.show()
+# fig = px.scatter(x=X, y=Y)
+# fig.show()
 
+# TODO: Add comments and math description
 class LinearRegression():
     def __init__(self, x=[],y=[],theta=np.random.rand(), b=np.random.rand()):
         self.theta = theta
@@ -18,7 +19,7 @@ class LinearRegression():
         self.y = y
         self.early_coof = 0.01
     
-    def __get_cost_function(self):
+    def __get_cost_function_value(self):
         y_predict = self.predict(self.x)
         error = np.sum((y_predict - self.y)**2)
         cost_function = ( 1 / len(self.x) ) * 0.5 * error
@@ -35,10 +36,6 @@ class LinearRegression():
         error = np.sum(y_predict - self.y)
         return coof * error
         
-    def __get_error(self):
-        y_predict = self.predict(self.x)
-        error = np.sum((y_predict - self.y)**2)
-        return error
     
     def __update_factors(self, learning_rate):
         theta_changes = learning_rate * self.__get_derived_cost_function_by_theta()
@@ -54,10 +51,9 @@ class LinearRegression():
     def __print_info(self, step, verbose):
         if verbose:
             print(f"Step #{step}")
-            print(f"Cost function = {self.__get_cost_function()}")
+            print(f"Cost function = {self.__get_cost_function_value()}")
             print(f"Theta = {self.theta}")
             print(f"b = {self.b}")
-            print(f"Error = {self.__get_error()}")
             
     def __clear_data(self):
         self.x = []
